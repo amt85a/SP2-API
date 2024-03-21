@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('agencies', function (Blueprint $table) {
-            $table->id();
-            $table->string('city');
-            $table->string('address');
-            $table->string('postal_code');
+        Schema::create('sock_operation', function (Blueprint $table) {
+            $table->foreignId('sock_id')->constrained();
+            $table->foreignId('operation_id')->constrained();
+            $table->primary(['sock_id', 'operation_id']);
             $table->timestamps();
         });
+
     }
 
     /**
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('agencies');
+        //
     }
 };

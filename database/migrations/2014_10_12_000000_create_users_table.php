@@ -19,8 +19,9 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('address');
-            $table->integer('postal_code');
-            $table->integer('phone_number');
+            $table->string('postal_code');
+            $table->string('phone_number');
+            $table->foreignId('role_id')->constrained();
             $table->rememberToken();
             $table->timestamps();
         });

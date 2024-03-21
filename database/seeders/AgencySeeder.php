@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Agency;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,8 @@ class AgencySeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $agencies = Agency::factory()
+            ->count(25)
+            ->create();
     }
 }

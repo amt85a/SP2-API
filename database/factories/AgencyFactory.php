@@ -17,7 +17,9 @@ class AgencyFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'city' => fake()->city(),
+            'address' => fake()->address(),
+            'postal_code' => fake()->postcode()
         ];
     }
 }

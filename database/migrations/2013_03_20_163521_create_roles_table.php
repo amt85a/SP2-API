@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('operation_sock', function (Blueprint $table) {
-            $table->foreignId('operation_id')->constrained();
-            $table->foreignId('sock_id')->constrained();
-            $table->primary(['operation_id', 'sock_id']);
+        Schema::create('roles', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
             $table->timestamps();
         });
-
     }
 
     /**
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('roles');
     }
 };

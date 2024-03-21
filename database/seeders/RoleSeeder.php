@@ -2,18 +2,18 @@
 
 namespace Database\Seeders;
 
-use App\Models\Operation;
+use App\Models\Role;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class OperationSeeder extends Seeder
+class RoleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $operations = Operation::factory()
+        $roles = Role::factory()
             ->count(25)
             ->create();
     }

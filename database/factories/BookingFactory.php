@@ -17,7 +17,10 @@ class BookingFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'reference' => fake()->numerify('########'),
+            'user_id' => rand(1, 10),
+            'agency_id' => rand(1, 10),
+            'state_id' => rand(1, 10),
         ];
     }
 }

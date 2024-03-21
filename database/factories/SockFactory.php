@@ -17,7 +17,9 @@ class SockFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'reference' => fake()->word(),
+            'amount' => fake()->numberBetween(1, 100),
+            'booking_id'=> rand(1, 10),
         ];
     }
 }
