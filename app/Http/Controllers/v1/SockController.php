@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\v1;
 
-use App\Http\Requests\StoreOperationRequest;
-use App\Http\Requests\UpdateOperationRequest;
-use App\Models\Operation;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreSockRequest;
+use App\Http\Requests\UpdateSockRequest;
+use App\Models\Sock;
 
-class OperationController extends Controller
+class SockController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return Sock::all();
     }
 
     /**
@@ -27,7 +28,7 @@ class OperationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreOperationRequest $request)
+    public function store(StoreSockRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class OperationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Operation $operation)
+    public function show(Sock $sock)
     {
         //
     }
@@ -43,7 +44,7 @@ class OperationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Operation $operation)
+    public function edit(Sock $sock)
     {
         //
     }
@@ -51,7 +52,7 @@ class OperationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateOperationRequest $request, Operation $operation)
+    public function update(UpdateSockRequest $request, Sock $sock)
     {
         //
     }
@@ -59,7 +60,7 @@ class OperationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Operation $operation)
+    public function destroy(Sock $sock)
     {
         //
     }
