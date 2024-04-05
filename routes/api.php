@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\v1\AuthController;
-use App\Http\Controllers\v1\SockController;
+use App\Http\Controllers\api\v1\AuthController;
+use App\Http\Controllers\api\v1\SockController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,9 +20,10 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')->group(function () {
     Route::post('register', [AuthController::class, 'register']);
     Route::post('login', [AuthController::class, 'login']);
+    Route::apiResource('sock', SockController::class);
 
     Route::middleware('auth:sanctum')->group(function () {
-        Route::apiResource('sock', SockController::class);
+
     });
 });
 

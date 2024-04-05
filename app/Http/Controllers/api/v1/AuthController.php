@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Http\Controllers\v1;
+namespace App\Http\Controllers\api\v1;
 
 
 use Illuminate\Http\Request;
 
-use App\Http\Controllers\v1\BaseController as BaseController;
+use App\Http\Controllers\api\v1\BaseController as BaseController;
 
 use App\Models\User;
 

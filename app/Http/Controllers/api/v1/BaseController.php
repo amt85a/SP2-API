@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Http\Controllers\v1;
+namespace App\Http\Controllers\api\v1;
 
 
 use Illuminate\Http\Request;
