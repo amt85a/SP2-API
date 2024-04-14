@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\api\v1;
 use App\Http\Controllers\api\v1\AuthController;
 use App\Http\Controllers\api\v1\SockController;
 use Illuminate\Http\Request;
@@ -22,8 +22,9 @@ Route::prefix('v1')->group(function () {
     Route::post('login', [AuthController::class, 'login']);
     Route::apiResource('sock', SockController::class);
 
-    Route::middleware('auth:sanctum')->group(function () {
 
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::apiResource('booking', \App\Http\Controllers\api\v1\BookingController::class);
     });
 });
 

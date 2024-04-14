@@ -7,6 +7,7 @@ namespace App\Http\Controllers\api\v1;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller as Controller;
+use Illuminate\Support\Facades\Log;
 
 
 class BaseController extends Controller
@@ -16,19 +17,15 @@ class BaseController extends Controller
     public function sendResponse($result, $message)
 
     {
-
         $response = [
-
-            'success' => true,
-
-            'data'    => $result,
-
-            'message' => $message,
-
+            'success' => [
+                'token'=>$result['token']
+            ],
         ];
 
-
-        return response()->json($response, 200);
+        $json = response()->json($response, 200);
+        Log::debug($json);
+        return $json;
 
     }
 

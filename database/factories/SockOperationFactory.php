@@ -18,13 +18,11 @@ class SockOperationFactory extends Factory
      */
     public function definition(): array
     {
-        $socks = Sock::all();
-        $sock_id = $socks[rand(0, count($socks)-1)]->id;
-        $operations= Operation::all();
-        $operation_id = $operations[rand(0, count($operations)-1)]->id;
+        $socks = Sock::count();
+        $operations = Operation::count();
         return [
-            "sock_id" => $sock_id,
-            "operation_id" =>$operation_id,
+            "sock_id" => rand(1,$socks),
+            "operation_id" =>rand(1,$operations),
         ];
     }
 }

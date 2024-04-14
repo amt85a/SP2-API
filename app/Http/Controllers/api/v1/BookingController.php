@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBookingRequest;
 use App\Http\Requests\UpdateBookingRequest;
 use App\Models\Booking;
+use Illuminate\Support\Facades\Log;
 
 class BookingController extends Controller
 {
@@ -14,7 +15,15 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+        $bookings = Booking::all();
+
+        $json = response()->json($bookings);
+
+        Log::debug("The route /Booking has been accessed : BookingController@index()");
+        Log::debug($json);
+
+        return $json;
+
     }
 
     /**

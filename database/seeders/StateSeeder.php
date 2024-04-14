@@ -13,9 +13,12 @@ class StateSeeder extends Seeder
      */
     public function run(): void
     {
+        $states = ['En attente de livraison', 'attribuée à une agence', 'envoyé en agence','envoyé chez le client'];
+        foreach ($states as $state) {
+            State::create([
+                'name' => $state,
+            ]);
+        }
 
-        $states = State::factory()
-            ->count(25)
-            ->create();
     }
 }

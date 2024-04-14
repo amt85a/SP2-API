@@ -12,15 +12,16 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        \App\Models\User::factory()->create([
+            'email' => 'usersio@test.fr',
+            'firstname' => '',
+            'lastname' => '',
+            'password' => 'password',
+            'address' => '',
+            'postal_code' => '',
+        ]);
          \App\Models\User::factory(10)->create();
 
-         \App\Models\User::factory()->create([
-             'email' => 'test@example.com',
-             'firstname' => '',
-             'lastname' => '',
-             'password' => '12345678',
-             'address' => '',
-             'postal_code' => '',
-         ]);
+
     }
 }
