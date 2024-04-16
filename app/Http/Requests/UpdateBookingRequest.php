@@ -11,7 +11,7 @@ class UpdateBookingRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class UpdateBookingRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'reference' => 'required',
+            'user_id' => 'required',
+            'state_id' => 'required',
+            'agency_id' => 'required',
         ];
     }
 }

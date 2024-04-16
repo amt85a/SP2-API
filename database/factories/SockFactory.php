@@ -20,6 +20,7 @@ class SockFactory extends Factory
         $bookings = Booking::count();
         return [
             'reference' => fake()->word(),
+            'description' => fake()->paragraph(),
             'amount' => fake()->numberBetween(1, 100),
             'booking_id'=> rand(1, $bookings),
         ];

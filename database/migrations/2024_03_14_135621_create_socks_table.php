@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('socks', function (Blueprint $table) {
             $table->id();
             $table->string('reference');
+            $table->string('description');
             $table->integer('amount');
-            $table->foreignId('booking_id')->constrained();
+            $table->boolean('isInStock')->default(true);
+            $table->foreignId('booking_id')->nullable()->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -11,7 +11,7 @@ class StoreSockRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class StoreSockRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'reference' => 'required',
+            'amount' => 'required',
+            'description' => 'required',
+            'booking_id' => 'nullable',
         ];
     }
 }

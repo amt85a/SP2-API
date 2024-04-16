@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAgencyRequest;
 use App\Http\Requests\UpdateAgencyRequest;
 use App\Models\Agency;
+use App\Models\Booking;
+use Illuminate\Support\Facades\Log;
 
 class AgencyController extends Controller
 {
@@ -14,7 +16,14 @@ class AgencyController extends Controller
      */
     public function index()
     {
-        //
+        $agencies = Agency::all();
+
+        $json = response()->json($agencies);
+
+        Log::debug("The route /Agency has been accessed : AgencyController@index()");
+        Log::debug($json);
+
+        return $json;
     }
 
     /**

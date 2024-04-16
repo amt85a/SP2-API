@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBookingRequest;
 use App\Http\Requests\UpdateBookingRequest;
 use App\Models\Booking;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class BookingController extends Controller
@@ -25,6 +26,8 @@ class BookingController extends Controller
         return $json;
 
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -63,7 +66,31 @@ class BookingController extends Controller
      */
     public function update(UpdateBookingRequest $request, Booking $booking)
     {
-        //
+        $this->validate($request, [
+            'reference' => 'required',
+            'user_id' => 'required',
+            'state_id' => 'required',
+            'agency_id' => 'required',
+        ]);
+        /*$booking->reference = $request->reference;
+        $booking->user_id = $request->user_id;
+        $booking->state_id = $request->state_id;
+        $booking->agency_id = $request->agency_id;
+        $booking->update();*/
+
+        $booking->update([
+            'reference' => $request->reference,
+            'user_id' => $request->user_id,
+            'state_id' => $request->state_id,
+            'agency_id' => $request->agency_id,
+        ]);
+
+        $json = response()->json($booking, 201);
+
+        Log::debug("The route /Booking has been accessed : BookingController@update()");
+        Log::debug($json);
+
+        return $json;
     }
 
     /**
@@ -72,5 +99,20 @@ class BookingController extends Controller
     public function destroy(Booking $booking)
     {
         //
+    }
+
+    public function allWithoutAgency() {
+        $bookings = Booking::all()->where('state_id','=',1);
+        $json = response()->json($bookings);
+
+        Log::debug("The route /Booking has been accessed : BookingController@allWithoutAgency()");
+        Log::debug($json);
+
+        return $json;
+    }
+
+    public function allWithAgencyState() {
+        Log::debug("The route /Booking has been accessed : BookingController@allWithAgencyState()");
+        return DB::select('call ps_bookings_agency_state();');
     }
 }

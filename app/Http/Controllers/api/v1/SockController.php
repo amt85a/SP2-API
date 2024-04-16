@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSockRequest;
 use App\Http\Requests\UpdateSockRequest;
 use App\Models\Sock;
+use Illuminate\Support\Facades\Log;
 
 class SockController extends Controller
 {
@@ -14,7 +15,7 @@ class SockController extends Controller
      */
     public function index()
     {
-        return Sock::all();
+        return Sock::where('isInStock', '=', 1)->get();
     }
 
     /**
@@ -30,7 +31,25 @@ class SockController extends Controller
      */
     public function store(StoreSockRequest $request)
     {
-        //
+        $this->validate($request, [
+            'reference' => 'required',
+            'amount' => 'required',
+            'description' => 'required',
+            'booking_id' => 'nullable',
+        ]);
+
+        $sock = Sock::create([
+            'reference' => $request->reference,
+            'amount' => $request->amount,
+            'description' => $request->description,
+            'booking_id' => $request->booking_id,
+        ]);
+
+        $json = response()->json($sock, 201);
+
+        Log::debug($json);
+
+        return $json;
     }
 
     /**
@@ -62,6 +81,11 @@ class SockController extends Controller
      */
     public function destroy(Sock $sock)
     {
-        //
+        $sock->isInStock = false;
+        $sock->save();
+
+        $json = response()->json(1);
+        Log::debug($json);
+        return $json;
     }
 }

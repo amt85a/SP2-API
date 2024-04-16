@@ -20,11 +20,16 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')->group(function () {
     Route::post('register', [AuthController::class, 'register']);
     Route::post('login', [AuthController::class, 'login']);
-    Route::apiResource('sock', SockController::class);
+    Route::get('sock',[SockController::class, 'index'])->name('sock.index');
+
 
 
     Route::middleware('auth:sanctum')->group(function () {
+        Route::get('booking/allwithoutagency', [\App\Http\Controllers\api\v1\BookingController::class, 'allWithoutAgency'])->name('booking.allwithoutagency');
+        Route::get('booking/allwithagencystate', [\App\Http\Controllers\api\v1\BookingController::class, 'allWithAgencyState'])->name('booking.allwithagencystate');
         Route::apiResource('booking', \App\Http\Controllers\api\v1\BookingController::class);
+        Route::apiResource('agency', \App\Http\Controllers\api\v1\AgencyController::class);
+        Route::apiResource('sock', SockController::class)->except(['index']);
     });
 });
 
