@@ -35,6 +35,7 @@ class SockController extends Controller
             'reference' => 'required',
             'amount' => 'required',
             'description' => 'required',
+            'isInStock' => 'required',
             'booking_id' => 'nullable',
         ]);
 
@@ -42,6 +43,7 @@ class SockController extends Controller
             'reference' => $request->reference,
             'amount' => $request->amount,
             'description' => $request->description,
+            'isInStock' => $request->isInStock,
             'booking_id' => $request->booking_id,
         ]);
 

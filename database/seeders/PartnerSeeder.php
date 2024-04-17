@@ -2,23 +2,18 @@
 
 namespace Database\Seeders;
 
-use App\Models\Agency;
+use App\Models\Partner;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class AgencySeeder extends Seeder
+class PartnerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        \App\Models\Agency::factory()->create([
-            'city' => 'Nantes',
-            'address' => 'Agence par défaut',
-            'postal_code' => 'def',
-        ]);
-        $agencies = Agency::factory()
+        $partner = Partner::factory()
             ->count(25)
             ->create();
     }

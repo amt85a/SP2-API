@@ -72,11 +72,6 @@ class BookingController extends Controller
             'state_id' => 'required',
             'agency_id' => 'required',
         ]);
-        /*$booking->reference = $request->reference;
-        $booking->user_id = $request->user_id;
-        $booking->state_id = $request->state_id;
-        $booking->agency_id = $request->agency_id;
-        $booking->update();*/
 
         $booking->update([
             'reference' => $request->reference,

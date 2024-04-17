@@ -13,8 +13,11 @@ class OperationSeeder extends Seeder
      */
     public function run(): void
     {
-        $operations = Operation::factory()
-            ->count(25)
-            ->create();
+        $operations = ['laver', 'recoudre', 'repasser'];
+        foreach ($operations as $operation){
+            Operation::create([
+                'name' => $operation,
+            ]);
+        }
     }
 }

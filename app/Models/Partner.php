@@ -5,13 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SockOperation extends Model
+class Partner extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-      'operation_id',
-      'partner_id',
-      'sock_id'
-    ];
 }

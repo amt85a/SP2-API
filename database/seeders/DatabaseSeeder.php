@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             BookingSeeder::class,
             OperationSeeder::class,
             SockSeeder::class,
+            PartnerSeeder::class,
             SockOperationSeeder::class,
         ]);
 

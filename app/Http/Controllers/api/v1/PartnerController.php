@@ -3,24 +3,23 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreAgencyRequest;
-use App\Http\Requests\UpdateAgencyRequest;
-use App\Models\Agency;
-use App\Models\Booking;
+use App\Http\Requests\StorePartnerRequest;
+use App\Http\Requests\UpdatePartnerRequest;
+use App\Models\Partner;
 use Illuminate\Support\Facades\Log;
 
-class AgencyController extends Controller
+class PartnerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $agencies = Agency::where('id', '!=', 1)->get();
+        $partners = Partner::all();
 
-        $json = response()->json($agencies);
+        $json = response()->json($partners);
 
-        Log::debug("The route /Agency has been accessed : AgencyController@index()");
+        Log::debug("The route /Booking has been accessed : BookingController@index()");
         Log::debug($json);
 
         return $json;
@@ -37,7 +36,7 @@ class AgencyController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAgencyRequest $request)
+    public function store(StorePartnerRequest $request)
     {
         //
     }
@@ -45,7 +44,7 @@ class AgencyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Agency $agency)
+    public function show(Partner $partner)
     {
         //
     }
@@ -53,7 +52,7 @@ class AgencyController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Agency $agency)
+    public function edit(Partner $partner)
     {
         //
     }
@@ -61,7 +60,7 @@ class AgencyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAgencyRequest $request, Agency $agency)
+    public function update(UpdatePartnerRequest $request, Partner $partner)
     {
         //
     }
@@ -69,7 +68,7 @@ class AgencyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Agency $agency)
+    public function destroy(Partner $partner)
     {
         //
     }

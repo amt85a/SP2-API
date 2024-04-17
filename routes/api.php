@@ -28,6 +28,9 @@ Route::prefix('v1')->group(function () {
         Route::get('booking/allwithoutagency', [\App\Http\Controllers\api\v1\BookingController::class, 'allWithoutAgency'])->name('booking.allwithoutagency');
         Route::get('booking/allwithagencystate', [\App\Http\Controllers\api\v1\BookingController::class, 'allWithAgencyState'])->name('booking.allwithagencystate');
         Route::apiResource('booking', \App\Http\Controllers\api\v1\BookingController::class);
+        Route::apiResource('sockOperation', \App\Http\Controllers\api\v1\SockOperationController::class);
+        Route::apiResource('operation', \App\Http\Controllers\api\v1\OperationController::class);
+        Route::apiResource('partner', \App\Http\Controllers\api\v1\PartnerController::class);
         Route::apiResource('agency', \App\Http\Controllers\api\v1\AgencyController::class);
         Route::apiResource('sock', SockController::class)->except(['index']);
     });

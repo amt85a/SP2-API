@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOperationRequest;
 use App\Http\Requests\UpdateOperationRequest;
 use App\Models\Operation;
+use Illuminate\Support\Facades\Log;
 
 class OperationController extends Controller
 {
@@ -14,7 +15,14 @@ class OperationController extends Controller
      */
     public function index()
     {
-        //
+        $operations = Operation::all();
+
+        $json = response()->json($operations);
+
+        Log::debug("The route /Booking has been accessed : BookingController@index()");
+        Log::debug($json);
+
+        return $json;
     }
 
     /**
