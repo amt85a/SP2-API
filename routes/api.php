@@ -33,6 +33,7 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('partner', \App\Http\Controllers\api\v1\PartnerController::class);
         Route::apiResource('agency', \App\Http\Controllers\api\v1\AgencyController::class);
         Route::apiResource('sock', SockController::class)->except(['index']);
+        Route::apiResource('group', \App\Http\Controllers\api\v1\GroupController::class);
     });
 });
 

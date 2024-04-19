@@ -67,9 +67,9 @@ class BookingController extends Controller
     public function update(UpdateBookingRequest $request, Booking $booking)
     {
         $this->validate($request, [
-            'reference' => 'required',
-            'user_id' => 'required',
-            'state_id' => 'required',
+            'reference' => 'nullable',
+            'user_id' => 'nullable',
+            'state_id' => 'nullable',
             'agency_id' => 'required',
         ]);
 

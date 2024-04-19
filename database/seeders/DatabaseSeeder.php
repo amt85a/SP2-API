@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             AgencySeeder::class,
             StateSeeder::class,
+            GroupSeeder::class,
             BookingSeeder::class,
             OperationSeeder::class,
             SockSeeder::class,

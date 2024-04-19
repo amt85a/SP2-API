@@ -17,8 +17,7 @@ return new class extends Migration
 
                         CREATE PROCEDURE ps_bookings_agency_state()
                         BEGIN
-                            select bookings.id,bookings.reference,states.name as state,agencies.address as agency from bookings
-                            inner join agencies on bookings.agency_id = agencies.id
+                            select bookings.id,bookings.reference,states.name as state from bookings
                             inner join states on bookings.state_id = states.id;
                         END;'
         );

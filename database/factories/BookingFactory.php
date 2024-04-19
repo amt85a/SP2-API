@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Agency;
+use App\Models\Group;
 use App\Models\State;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -20,12 +21,12 @@ class BookingFactory extends Factory
     public function definition(): array
     {
         $users = User::count();
-        $agencies = Agency::count();
+        $groups = Group::count();
         $states = State::count();
         return [
             'reference' => fake()->numerify('########'),
             'user_id' => rand(1, $users),
-            'agency_id' => rand(1, $agencies),
+            'group_id' => rand(1, $groups),
             'state_id' => rand(1, $states),
         ];
     }
